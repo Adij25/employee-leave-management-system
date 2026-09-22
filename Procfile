@@ -1,1 +1,1 @@
-web: gunicorn leave_mgmt.wsgi:application
+web: python manage.py collectstatic --noinput && python manage.py migrate && gunicorn leave_mgmt.wsgi:application
