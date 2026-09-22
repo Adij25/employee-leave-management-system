@@ -1,0 +1,1 @@
+web: gunicorn leave_mgmt.wsgi:application

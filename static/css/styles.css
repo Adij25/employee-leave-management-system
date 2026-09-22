@@ -1,0 +1,39 @@
+* { box-sizing: border-box; }
+body { font-family: Inter, sans-serif; background: #f5f7fb; color: #182230; min-height: 100vh; }
+.app-navbar { background: rgba(255,255,255,.95); border-bottom: 1px solid #e8ecf2; backdrop-filter: blur(12px); }
+.brand { font-weight: 800; letter-spacing: -.03em; color: #182230 !important; }
+.brand-mark { display:inline-grid; place-items:center; width:34px; height:34px; margin-right:8px; border-radius:10px; background:#315efb; color:white; }
+.nav-link { color:#596579; font-weight:600; }
+.nav-link:hover { color:#315efb; }
+.app-footer { border-top:1px solid #e8ecf2; padding:24px 0; color:#7a8494; font-size:.85rem; margin-top:32px; }
+.hero { padding:72px 0; }
+.hero-card, .card-soft { background:#fff; border:1px solid #e8ecf2; border-radius:22px; box-shadow:0 12px 35px rgba(31,45,61,.06); }
+.hero-card { padding:48px; }
+.hero h1 { font-size:clamp(2.3rem, 5vw, 4.2rem); line-height:1.02; font-weight:800; letter-spacing:-.055em; }
+.text-muted-custom { color:#697586; }
+.btn-primary { background:#315efb; border-color:#315efb; }
+.btn-primary:hover { background:#244bd7; border-color:#244bd7; }
+.form-control, .form-select { border-radius:12px; padding:.75rem .9rem; border-color:#dce2eb; }
+.form-control:focus, .form-select:focus { border-color:#315efb; box-shadow:0 0 0 .2rem rgba(49,94,251,.12); }
+.auth-wrap { max-width:500px; margin:20px auto; }
+.auth-card { padding:34px; }
+.page-title { font-weight:800; letter-spacing:-.03em; }
+.stat-card { padding:22px; height:100%; }
+.stat-label { color:#748093; font-size:.85rem; font-weight:600; }
+.stat-value { font-size:1.8rem; font-weight:800; margin-top:6px; }
+.balance-card { padding:22px; border-radius:18px; background:#fff; border:1px solid #e8ecf2; }
+.balance-number { font-size:2rem; font-weight:800; }
+.badge-status { border-radius:999px; padding:.45rem .7rem; font-weight:700; font-size:.75rem; }
+.status-pending { background:#fff3cd; color:#8a6200; }
+.status-approved { background:#d9f7e5; color:#14733d; }
+.status-rejected { background:#fde0e0; color:#a32b2b; }
+.table-wrap { overflow-x:auto; }
+.table { min-width:650px; }
+.table > :not(caption) > * > * { padding:1rem .8rem; }
+.empty-state { padding:45px 20px; text-align:center; color:#748093; }
+.feature { padding:22px; height:100%; }
+@media (max-width: 767px) {
+  .hero { padding:30px 0; }
+  .hero-card { padding:28px 22px; }
+  .auth-card { padding:24px 18px; }
+}

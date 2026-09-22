@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}LeaveFlow · Simple Leave Management{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-card">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <span class="badge text-bg-light border px-3 py-2 mb-3">Employee Leave Management</span>
+        <h1>Leave management that just works.</h1>
+        <p class="lead text-muted-custom mt-3">Apply for leave, track approvals, and manage balances from one clean, responsive workspace.</p>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <a class="btn btn-primary btn-lg px-4" href="{% url 'accounts:login' %}">Sign in</a>
+          <a class="btn btn-outline-dark btn-lg px-4" href="{% url 'accounts:register' %}">Register as employee</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card-soft p-4">
+          <div class="feature">
+            <h5 class="fw-bold">Built for everyday HR workflows</h5>
+            <p class="text-muted-custom mb-0">Secure authentication, leave balances, approval workflow, profile management and responsive dashboards.</p>
+          </div>
+          <hr>
+          <div class="row g-3">
+            <div class="col-6"><strong>4-digit PIN</strong><br><small class="text-muted">Securely hashed</small></div>
+            <div class="col-6"><strong>Responsive</strong><br><small class="text-muted">Mobile to desktop</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

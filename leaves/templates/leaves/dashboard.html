@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard · LeaveFlow{% endblock %}
+{% block content %}
+<div class="mb-4"><h2 class="page-title mb-1">Good to see you, {{ user.first_name|default:"Employee" }}.</h2><p class="text-muted-custom mb-0">Here’s your leave overview.</p></div>
+<div class="row g-3 mb-4">
+  <div class="col-12 col-sm-4"><div class="card-soft stat-card"><div class="stat-label">Total requests</div><div class="stat-value">{{ stats.total }}</div></div></div>
+  <div class="col-12 col-sm-4"><div class="card-soft stat-card"><div class="stat-label">Pending</div><div class="stat-value">{{ stats.pending }}</div></div></div>
+  <div class="col-12 col-sm-4"><div class="card-soft stat-card"><div class="stat-label">Approved</div><div class="stat-value">{{ stats.approved }}</div></div></div>
+</div>
+<div class="d-flex justify-content-between align-items-center mb-3"><h5 class="fw-bold mb-0">Leave balance</h5><a href="{% url 'leaves:apply_leave' %}" class="btn btn-primary btn-sm">+ Apply leave</a></div>
+<div class="row g-3 mb-5">
+  <div class="col-md-4"><div class="balance-card"><div class="text-muted">Casual</div><div class="balance-number">{{ balance.casual|floatformat:"0" }}</div><small class="text-muted">days available</small></div></div>
+  <div class="col-md-4"><div class="balance-card"><div class="text-muted">Sick</div><div class="balance-number">{{ balance.sick|floatformat:"0" }}</div><small class="text-muted">days available</small></div></div>
+  <div class="col-md-4"><div class="balance-card"><div class="text-muted">Other</div><div class="balance-number">{{ balance.other|floatformat:"0" }}</div><small class="text-muted">days available</small></div></div>
+</div>
+<div class="card-soft p-4"><div class="d-flex justify-content-between mb-3"><h5 class="fw-bold mb-0">Recent requests</h5><a href="{% url 'leaves:leave_history' %}">View all</a></div>
+<div class="table-wrap"><table class="table align-middle mb-0"><thead><tr><th>Type</th><th>Dates</th><th>Days</th><th>Status</th></tr></thead><tbody>
+{% for r in requests %}<tr><td class="text-capitalize">{{ r.leave_type }}</td><td>{{ r.start_date|date:"d M Y" }} – {{ r.end_date|date:"d M Y" }}</td><td>{{ r.days|floatformat:"0" }}</td><td><span class="badge-status status-{{ r.status }}">{{ r.get_status_display }}</span><br><small class="text-muted">Admin review</small></td></tr>
+{% empty %}<tr><td colspan="4" class="empty-state">No leave requests yet.</td></tr>{% endfor %}
+</tbody></table></div></div>
+{% endblock %}
